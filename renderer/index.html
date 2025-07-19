@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>驰风车队接档器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 登录/注册视图 -->
+    <div id="auth-view" class="view">
+      <div class="auth-container">
+        <div class="tabs">
+          <button class="tab active" data-tab="login">登录</button>
+          <button class="tab" data-tab="register">注册</button>
+        </div>
+        
+        <!-- 登录表单 -->
+        <form id="login-form" class="auth-form">
+          <div class="form-group">
+            <label for="login-username">用户名</label>
+            <input type="text" id="login-username" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">密码</label>
+            <input type="password" id="login-password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">登录</button>
+        </form>
+        
+        <!-- 注册表单 -->
+        <form id="register-form" class="auth-form hidden">
+          <div class="form-group">
+            <label for="register-username">用户名</label>
+            <input type="text" id="register-username" required>
+          </div>
+          <div class="form-group">
+            <label for="register-password">密码</label>
+            <input type="password" id="register-password" required>
+          </div>
+          <div class="form-group">
+            <label for="register-invite">邀请码</label>
+            <input type="text" id="register-invite" required>
+          </div>
+          <button type="submit" class="btn btn-primary">注册</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- 主应用视图 (登录后显示) -->
+    <div id="main-view" class="view hidden">
+      <header class="app-header">
+        <h1>欧卡2驰风车队接档器</h1>
+        <div class="user-info">
+          <span id="username-display"></span>
+          <button id="logout-btn" class="btn btn-secondary">退出</button>
+        </div>
+      </header>
+      
+      <div class="content">
+        <!-- 普通用户视图 -->
+        <div id="user-view">
+          <h2>存档下载</h2>
+          <div class="archive-list" id="user-archive-list">
+            <!-- 存档列表将通过JS动态加载 -->
+          </div>
+          <div class="download-controls">
+            <button id="download-btn" class="btn btn-primary" disabled>下载选中存档</button>
+            <div class="path-selector">
+              <label for="install-path">安装路径:</label>
+              <input type="text" id="install-path" readonly>
+              <button id="browse-btn" class="btn btn-secondary">浏览</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 管理员视图 -->
+        <div id="admin-view" class="hidden">
+          <div class="admin-section">
+            <h2>存档管理</h2>
+            <div class="archive-upload">
+              <input type="file" id="archive-upload" accept=".zip">
+              <button id="upload-btn" class="btn btn-primary">上传存档</button>
+            </div>
+            <div class="archive-list" id="admin-archive-list">
+              <!-- 存档列表将通过JS动态加载 -->
+            </div>
+          </div>
+          
+          <div class="admin-section">
+            <h2>用户管理</h2>
+            <div class="user-list" id="user-list">
+              <!-- 用户列表将通过JS动态加载 -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 加载指示器 -->
+    <div id="loading-overlay" class="overlay hidden">
+      <div class="spinner"></div>
+      <div class="loading-message">处理中...</div>
+    </div>
+  </div>
+  
+  <script src="main.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

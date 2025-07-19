@@ -1,0 +1,124 @@
+{
+  "name": "ets2-archiver",
+  "version": "1.0.0",
+  "description": "驰风车队接档器客户端",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "build-win": "electron-builder --win"
+  },
+  "author": "ALE_211",
+  "license": "MIT",
+  "dependencies": {
+    "ajv": "8.12.0",
+    "ajv-formats": "2.1.1",
+    "asynckit": "0.4.0",
+    "axios": "1.10.0",
+    "buffer-crc32": "0.2.13",
+    "combined-stream": "1.0.8",
+    "conf": "10.2.0",
+    "debug": "4.4.1",
+    "delayed-stream": "1.0.0",
+    "electron-store": "8.1.0",
+    "es-set-tostringtag": "2.0.1",
+    "extract-zip": "2.0.1",
+    "fast-deep-equal": "3.1.3",
+    "fast-uri": "3.0.1",
+    "fd-slicer": "1.1.0",
+    "follow-redirects": "1.15.9",
+    "form-data": "4.0.4",
+    "fs-extra": "11.3.0",
+    "get-stream": "5.2.0",
+    "graceful-fs": "4.2.11",
+    "hasown": "2.0.2",
+    "json-schema-traverse": "1.0.0",
+    "json-schema-typed": "7.0.3",
+    "jsonfile": "6.1.0",
+    "mime-db": "1.52.0",
+    "mime-types": "2.1.35",
+    "mkdirp": "1.0.4",
+    "ms": "2.1.3",
+    "onetime": "5.1.2",
+    "pend": "1.2.0",
+    "proxy-from-env": "1.1.0",
+    "require-from-string": "2.0.2",
+    "semver": "7.3.5",
+    "type-fest": "2.19.0",
+    "universalify": "2.0.1",
+    "yauzl": "2.10.0"
+  },
+  "devDependencies": {
+    "electron": "25.3.2",
+    "electron-builder": "24.6.3",
+    "rimraf": "^6.0.1"
+  },
+  "overrides": {
+    "ajv": {
+      "fast-deep-equal": "3.1.3",
+      "json-schema-traverse": "1.0.0",
+      "require-from-string": "2.0.2"
+    },
+    "ajv-keywords": {
+      "ajv": "8.12.0"
+    },
+    "conf": {
+      "ajv": "8.12.0",
+      "ajv-formats": "2.1.1"
+    },
+    "form-data": {
+      "asynckit": "0.4.0",
+      "combined-stream": "1.0.8",
+      "mime-types": "2.1.35"
+    },
+    "yauzl": {
+      "buffer-crc32": "0.2.13",
+      "fd-slicer": "1.1.0"
+    },
+    "electron-store": {
+      "conf": "10.2.0",
+      "type-fest": "2.19.0"
+    },
+    "fs-extra": {
+      "jsonfile": "6.1.0",
+      "universalify": "2.0.1"
+    }
+  },
+  "resolutions": {
+    "**/ajv": "8.17.1",
+    "**/graceful-fs": "4.2.11",
+    "**/mime-types": "2.1.35"
+  },
+  "build": {
+    "appId": "com.chifeng.ets2archiver",
+    "productName": "驰风车队接档器",
+    "copyright": "Copyright © 2023 ${author}",
+    "asar": {
+      "smartUnpack": true,
+      "ordering": "order.txt"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icon.png",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "驰风车队接档器"
+    },
+    "extraResources": [
+      {
+        "from": "assets/",
+        "to": "assets"
+      }
+    ]
+  }
+}
